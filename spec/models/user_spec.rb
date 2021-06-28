@@ -107,11 +107,77 @@ RSpec.describe User, type: :model do
       
     end
 
-
-
-
-
-
   end
+  
+
+    describe '.authenticate_with_credentials' do
+      it 'should pass' do
+      @user = User.new(
+        first_name: 'Zio',
+        last_name: 'Tan',
+        email: 'zio@tan.com',
+        password: '123',
+        password_confirmation: '123'
+      )
+      @user.save
+
+      @user = User.authenticate_with_credentials('zio@tan.com', '123')
+      expect(@user).not_to be(nil)
+
+    end
+
+    it 'should not pass with wrong password' do
+      @user = User.new(
+        first_name: 'Zio',
+        last_name: 'Tan',
+        email: 'zio@tan.com',
+        password: '123',
+        password_confirmation: '123'
+      )
+      @user.save
+
+      @user = User.authenticate_with_credentials('zio@tan.com', '321')
+      expect(@user).to be(nil)
+    end
+
+    it 'should pass even with spaces in email' do
+      @user = User.new(
+        first_name: 'Zio',
+        last_name: 'Tan',
+        email: 'zio@tan.com',
+        password: '123',
+        password_confirmation: '123'
+      )
+      @user.save
+
+      @user = User.authenticate_with_credentials(' zio@tan.com  ', '123')
+      expect(@user).not_to be(nil)
+    end
+
+    it 'should pass even with caps in email' do
+      @user = User.new(
+        first_name: 'Zio',
+        last_name: 'Tan',
+        email: 'zio@tan.com',
+        password: '123',
+        password_confirmation: '123'
+      )
+      @user.save
+
+      @user = User.authenticate_with_credentials('ZIO@tan.com', '123')
+      expect(@user).not_to be(nil)
+    end
+
+
+
+
+
+
+
+
+    end
 
 end
+
+
+
