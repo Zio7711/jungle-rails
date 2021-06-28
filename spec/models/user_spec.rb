@@ -61,13 +61,40 @@ RSpec.describe User, type: :model do
       @user2 = User.new(
         first_name: 'tan',
         last_name: 'zio',
-        email: 'zio@tan.com',
+        email: 'Zio@tan.com',
         password: '123',
         password_confirmation: '123'
       )
       expect(@user2).not_to be_valid
       expect(@user2.errors[:email]).to include("has already been taken")
     end
+
+    it "should not create a user if the password is missing" do
+      @user = User.new(
+        first_name: 'tan',
+        last_name: 'zio',
+        email: 'Zio@tan.com',
+
+        password_confirmation: '123'
+      )
+      expect(@user).not_to be_valid
+      expect(@user.errors[:password]).to include("can't be blank")
+    end
+
+    it "should not create a user if the password confirmation is different" do
+      @user = User.new(
+        first_name: 'tan',
+        last_name: 'zio',
+        email: 'Zio@tan.com',
+        password: '123',
+        password_confirmation: '321'
+      )
+      expect(@user).not_to be_valid
+      expect(@user.errors[:password_confirmation]).to include("doesn't match Password")
+      
+    end
+
+
 
 
 
