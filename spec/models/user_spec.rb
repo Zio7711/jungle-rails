@@ -94,6 +94,19 @@ RSpec.describe User, type: :model do
       
     end
 
+    it "should not create a user if the password is less than 3 characters" do
+      @user = User.new(
+        first_name: 'tan',
+        last_name: 'zio',
+        email: 'Zio@tan.com',
+        password: '12',
+        password_confirmation: '12'
+      )
+      expect(@user).not_to be_valid
+      expect(@user.errors[:password]).to include("is too short (minimum is 3 characters)")
+      
+    end
+
 
 
 
