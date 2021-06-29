@@ -36,3 +36,29 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 - Rspec
 - Capybara
+
+## Demo Pictures
+
+### Main Page
+
+!["Main page"](https://github.com/Zio7711/jungle-rails/blob/master/public/pics/mainPage.png?raw=true)
+
+### Product Detail Page
+
+!["Product page"](https://github.com/Zio7711/jungle-rails/blob/master/public/pics/productDetailPage.png?raw=true)
+
+### Admin Dashboard
+
+!["Admin dashboard page"](https://github.com/Zio7711/jungle-rails/blob/master/public/pics/adminDashBoard.png?raw=true)
+
+### Admin Product
+
+!["Admin product page"](https://github.com/Zio7711/jungle-rails/blob/master/public/pics/adminProduct.png?raw=true)
+
+### Checkout Page
+
+!["Checkout page"](https://github.com/Zio7711/jungle-rails/blob/master/public/pics/checkout.png?raw=true)
+
+### Successful Checked Out Page
+
+!["place order page"](https://github.com/Zio7711/jungle-rails/blob/master/public/pics/placeOrder.png?raw=true)
